@@ -1,0 +1,50 @@
+@import "../style/breakpoints";
+
+.main-section {
+  margin: auto;
+  width: 90vw;
+  @include phone {
+    width: 80vw;
+  }
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px;
+  @include tablet {
+    margin: 40px 40px 50px 40px;
+  }
+}
+
+span:first-of-type {
+  background: #544e65;
+  padding-left: 10px;
+  font-size: 22px;
+
+  @include tablet {
+    font-size: inherit;
+  }
+}
+
+span:nth-of-type(2) {
+  color: #544e65;
+  padding-left: 5px;
+  font-size: 22px;
+
+  @include tablet {
+    font-size: inherit;
+  }
+}
+.footer-section {
+  margin: 60px auto 0px auto;
+  width: 80vw;
+}
+
+.footer-section__autors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}

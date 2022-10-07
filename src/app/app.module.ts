@@ -11,7 +11,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { ArticleEditionComponent } from './components/article-edition/article-edition.component';
 import { ArticleListComponent } from './components/article-list/article-list.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { EditPageComponent } from './pages/edit-page/edit-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     ArticleDetailsComponent,
     ArticleEditionComponent,
     ArticleListComponent,
-    LoginPageComponent,
+    EditPageComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule],
   providers: [],

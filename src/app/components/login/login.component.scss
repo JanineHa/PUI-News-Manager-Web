@@ -1,0 +1,22 @@
+@import "../../../style/breakpoints";
+.login-bar__container {
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.login-bar__element {
+  margin-bottom: 8px;
+  line-height: 1.8em;
+  @include tablet {
+    line-height: normal;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+}
+.login-bar__icon {
+  margin-right: 4px;
+  vertical-align: sub;
+}
