@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Article } from '../components/article';
+import { Article } from '../interfaces/article';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -13,7 +13,9 @@ export class NewsService {
   private newsUrl = 'http://sanger.dia.fi.upm.es/pui-rest-news/articles'; // URL to web api
   private articleUrl = 'http://sanger.dia.fi.upm.es/pui-rest-news/article'; // URL to web api
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.APIKEY = '';
+  }
 
   // Set the corresponding APIKEY accordig to the received by email
   private APIKEY: string;

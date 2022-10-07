@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../components/user';
+import { User } from '../interfaces/user';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
@@ -18,7 +18,10 @@ export class LoginService {
     headers: new HttpHeaders().set('Content-Type', 'x-www-form-urlencoded'),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.user = { username: null, password: null };
+    this.message = '';
+  }
 
   isLogged() {
     return this.user != null;
@@ -39,12 +42,14 @@ export class LoginService {
   }
 
   logout() {
-    this.user = null;
+    // this.user = null;
+    this.user = { username: null, password: null };
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      this.user = null;
+      //this.user = null;
+      this.user = { username: null, password: null };
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 

@@ -1,0 +1,15 @@
+@import "../../../style/breakpoints";
+
+.main-page__container {
+  margin: auto;
+  width: 80vw;
+}
+.main-page__heading {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: right;
+
+  @include desktop {
+    font-size: 100px;
+  }
+}

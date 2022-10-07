@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  color: white;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  background-color: #06140d;
+  background-image: radial-gradient(
+      at 45% 98%,
+      hsla(157, 40.3%, 28.2%, 1) 0,
+      hsla(323, 88%, 68%, 0) 50%
+    ),
+    radial-gradient(
+      at 15% 55%,
+      hsla(157, 40.3%, 28.2%, 1) 0,
+      hsla(221, 86%, 51%, 0) 50%
+    ),
+    radial-gradient(
+      at 88% 65%,
+      hsla(256, 12.8%, 35.1%, 1) 0,
+      hsla(339, 89%, 54%, 0) 50%
+    ),
+    radial-gradient(
+      at 15% 25%,
+      hsla(167, 95%, 50%, 1) 0,
+      hsla(293, 87%, 67%, 0) 50%
+    );
+}

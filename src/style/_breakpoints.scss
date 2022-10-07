@@ -1,0 +1,28 @@
+$bp-small-min: 576px;
+$bp-medium-min: 768px;
+$bp-large-min: 1024px;
+$bp-xlarge-min: 1440px;
+
+@mixin phone {
+  @media (min-width: #{$bp-small-min}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$bp-medium-min}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$bp-large-min}) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media (min-width: #{$bp-xlarge-min}) {
+    @content;
+  }
+}

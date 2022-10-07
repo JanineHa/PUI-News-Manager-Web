@@ -1,0 +1,19 @@
+.navBar__container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+  a {
+    color: white;
+    text-align: center;
+    padding: 0px 16px;
+    text-decoration: none;
+    font-size: 16px;
+
+    &:hover {
+      color: rgb(36, 235, 189);
+    }
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
