@@ -12,6 +12,7 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
 import { ArticleEditionComponent } from './components/article-edition/article-edition.component';
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
+import { CreatePageComponent } from './pages/create-page/create-page.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditPageComponent } from './pages/edit-page/edit-page.component';
     ArticleEditionComponent,
     ArticleListComponent,
     EditPageComponent,
+    CreatePageComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule],
   providers: [],
