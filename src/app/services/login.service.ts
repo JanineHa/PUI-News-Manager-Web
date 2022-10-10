@@ -3,6 +3,7 @@ import { User } from '../interfaces/user';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { NewsService } from './news.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class LoginService {
     headers: new HttpHeaders().set('Content-Type', 'x-www-form-urlencoded'),
   };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private newsService: NewsService) {
     this.user = { username: null, password: null };
     this.message = '';
   }
@@ -29,10 +30,10 @@ export class LoginService {
 
   login(name: string, pwd: string): Observable<User> {
     const usereq = new HttpParams().set('username', name).set('passwd', pwd);
-
     return this.http.post<User>(this.loginUrl, usereq).pipe(
       tap((user) => {
         this.user = user;
+        this.newsService.setUserApiKey(user.apikey!)
       })
     );
   }
@@ -44,6 +45,7 @@ export class LoginService {
   logout() {
     // this.user = null;
     this.user = { username: null, password: null };
+    this.newsService.setAnonymousApiKey()
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
