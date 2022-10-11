@@ -3,12 +3,13 @@
     *ngFor="let article of articleList"
     class="article-list__card"
   >
-    <img
-      *ngIf="article.thumbnail_image"
-      [src]="'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image "
-      class="article-thumbnail"
-      [routerLink]="['/detailPage', article.id]"
-    >
+    <div class="article-thumbnail">
+      <img
+        *ngIf="article.thumbnail_image"
+        [src]="'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image "
+        [routerLink]="['/detailPage', article.id]"
+      >
+    </div>
     <div class="article-content">
       <div>
         <span class="article-content__category">

@@ -13,7 +13,10 @@
 }
 
 .article-thumbnail{
-  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 16px;
 }
 
 .article-content{
@@ -28,7 +31,7 @@
 .article-content__category{
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 4px;
+  margin: 4px 0;
   color: lightgrey
 }
 
@@ -37,6 +40,7 @@
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 2px;
+  cursor: pointer;
 }
 
 .article-content__subtitle{
@@ -57,6 +61,7 @@
   border: none;
   border-radius: 5px;
   padding: 4px;
+  margin-top: 12px;
 }
 
 .create-article-button{
