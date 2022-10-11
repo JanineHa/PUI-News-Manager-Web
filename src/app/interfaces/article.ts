@@ -9,4 +9,6 @@ export interface Article {
   image_data?: string;
   thumbnail_image?: string;
   thumbnail_media_type?: string;
+  update_date: string;
+  username: string;
 }
