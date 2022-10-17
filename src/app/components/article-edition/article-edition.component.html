@@ -1,1 +1,57 @@
-<p>article-edition works!</p>
+
+<form
+  *ngIf="userLogged(); else message"
+  #articleForm="ngForm">
+  <p>Title<abbr title="required">*</abbr></p>
+  <input
+      type="text"
+      required
+      [(ngModel)]="article.title"
+      name="title"
+      #title="ngModel"
+  >
+  <div *ngIf="title.invalid && !title.pristine"> Please provide a title</div>
+  <p>Subtitle<abbr title="required">*</abbr></p>
+  <input
+      type="text"
+      required
+      [(ngModel)]="article.subtitle"
+      name="subtitle"
+      #subtitle="ngModel"
+  >
+  <div *ngIf="subtitle.invalid && !subtitle.pristine"> Please provide a subtitle</div>
+  <p>Category<abbr title="required">*</abbr></p>
+  <select
+      [(ngModel)]="article.category"
+      required
+      name="category"
+      #category="ngModel"
+  >
+      <option value="National">National</option>
+      <option value="Economy">Economy</option>
+      <option value="Sports">Sports</option>
+      <option value="Technology">Technology</option>
+    </select>
+  <div *ngIf="category.invalid && !category.pristine"> Please provide a category</div>
+  <p>Abstract<abbr title="required">*</abbr></p>
+  <input
+      type="text"
+      required
+      [(ngModel)]="article.abstract"
+      name="abstract"
+      #abstract="ngModel"
+  >
+  <div *ngIf="abstract.invalid && !abstract.pristine"> Please provide an abstract</div>
+  <p>Body</p>
+  <textarea
+      [(ngModel)]="article.body"
+      name="body"
+      #body="ngModel">
+  </textarea>
+  <button (click)="save()" type="submit" [disabled]="!articleForm.form.valid">Save Article</button>
+  <button routerLink="/">Go back</button>
+</form>
+
+<ng-template #message>
+  <p> You are not authorized to access this page.</p>
+</ng-template>
