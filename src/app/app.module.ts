@@ -13,6 +13,9 @@ import { ArticleEditionComponent } from './components/article-edition/article-ed
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
 import { CreatePageComponent } from './pages/create-page/create-page.component';
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterCategoryPipe } from './pipes/filter-category.pipe';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,9 @@ import { CreatePageComponent } from './pages/create-page/create-page.component';
     ArticleListComponent,
     EditPageComponent,
     CreatePageComponent,
+    FilterCategoryPipe,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, FormsModule, Ng2SearchPipeModule],
   providers: [],
   bootstrap: [AppComponent],
 })
