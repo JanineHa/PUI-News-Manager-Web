@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FilterService } from 'src/app/services/filter.service';
+import { ArticleListComponent } from '../article-list/article-list.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(private filterService: FilterService) { }
+
+  ngOnInit(): void { }
   openMenu(): void {
     let x: any;
     x = document.getElementById('navBar');
@@ -18,4 +21,16 @@ export class NavBarComponent implements OnInit {
       x.className = 'navBar-container';
     }
   }
+
+  updateFilterTerm(filterTerm: string | null): void {
+    if (filterTerm) {
+      this.filterService.setFilterTerm(filterTerm)
+    } else {
+      this.filterService.removeFilterTerm()
+    }
+  }
+
+  setCategory(category: string): void {
+    this.filterService.setCategory(category)
+   }
 }
