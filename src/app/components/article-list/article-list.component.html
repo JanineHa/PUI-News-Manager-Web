@@ -1,6 +1,7 @@
+<p *ngIf="flashMessage">{{flashMessage}}<button (click)="hideFlash()">X</button></p>
 <div class="article-list">
   <div
-    *ngFor="let article of articleList"
+    *ngFor="let article of articleList | filter:getFilterTerm() | filterCategory:getCategory()"
     class="article-list__card"
   >
     <div class="article-thumbnail">
@@ -11,22 +12,24 @@
       >
     </div>
     <div class="article-content">
-      <div>
-        <span class="article-content__category">
+      <div class="article-info">
+        <span class="article-info__category">
           {{article.category}}
         </span>
         <p
-          class="article-content__title"
+          class="article-info__title"
           [routerLink]="['/detailPage', article.id]"
         >
           {{article.title}}
         </p>
-        <p class="article-content__subtitle">
+        <p class="article-info__subtitle">
           {{article.subtitle}}
         </p>
         <p>{{article.abstract}}</p>
       </div>
-      <div class="article-action-buttons">
+      <div
+        *ngIf="userLogged()"
+        class="article-action-buttons">
         <button
           class="create-article-button"
           routerLink="/createPage"
