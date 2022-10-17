@@ -1,1 +1,20 @@
-<p>article-details works!</p>
+<p class="article-title">
+  {{article.title}}
+</p>
+<p class="article-subtitle">
+  {{article.subtitle}}
+</p>
+<p class="article-category">
+  {{article.category}}
+</p>
+<div class="article-image__container">
+  <img
+    *ngIf="article.image_data"
+    [src]="'data:' + article.image_media_type + ';base64,' + article.image_data "
+  >
+</div>
+<p [innerHTML]="article.abstract" class="article-abstract"></p>
+<p [innerHTML]="article.body"></p>
+<p class="article-modification">
+  last modified on <strong>{{ article.update_date }}</strong> by <strong>{{ article.username }}</strong>
+</p>

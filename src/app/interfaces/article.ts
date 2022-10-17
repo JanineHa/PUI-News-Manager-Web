@@ -5,4 +5,10 @@ export interface Article {
   category: string;
   abstract: string;
   body?: string;
+  image_media_type?: string;
+  image_data?: string;
+  thumbnail_image?: string;
+  thumbnail_media_type?: string;
+  update_date: string;
+  username: string;
 }
