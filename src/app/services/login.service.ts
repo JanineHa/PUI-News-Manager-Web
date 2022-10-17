@@ -9,7 +9,7 @@ import { NewsService } from './news.service';
   providedIn: 'root',
 })
 export class LoginService {
-  private user: User;
+  private user: User | null;
 
   private loginUrl = 'http://sanger.dia.fi.upm.es/pui-rest-news/login';
 
@@ -20,7 +20,7 @@ export class LoginService {
   };
 
   constructor(private http: HttpClient, private newsService: NewsService) {
-    this.user = { username: null, password: null };
+    this.user = null
     this.message = '';
   }
 
@@ -43,15 +43,13 @@ export class LoginService {
   }
 
   logout() {
-    // this.user = null;
-    this.user = { username: null, password: null };
+    this.user = null;
     this.newsService.setAnonymousApiKey()
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      //this.user = null;
-      this.user = { username: null, password: null };
+      this.user = null;
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
