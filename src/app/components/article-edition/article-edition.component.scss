@@ -1,0 +1,35 @@
+.article-editon__title {
+  font-size: 1.8em;
+  text-align: center;
+  margin: 2em 0 1.5em 0;
+}
+.article-edition__input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.1em;
+}
+
+.article-edition__input {
+  width: 75%;
+  resize: none;
+}
+
+.artice-edition__image {
+  width: 75%;
+}
+
+.article-edition__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.save-article-button {
+  color: white;
+  background-color: #ef8354;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin-top: 12px;
+  cursor: pointer;
+}

@@ -56,13 +56,15 @@ export class NewsService {
   //  "thumbnail_media_type":...}
 
   getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.newsUrl, this.httpOptions);
+    return this.http.get<Article[]>(this.newsUrl);
+    //return this.http.get<Article[]>(this.newsUrl, this.httpOptions);
   }
 
   deleteArticle(article: Article | number): Observable<Article> {
     const id = typeof article === 'number' ? article : article.id;
     const url = `${this.articleUrl}/${id}`;
-    return this.http.delete<Article>(url, this.httpOptions);
+    return this.http.delete<Article>(url);
+    //return this.http.delete<Article>(url, this.httpOptions);
   }
 
   // Returns an article which contains the following elements:
@@ -79,17 +81,20 @@ export class NewsService {
   getArticle(id: number): Observable<Article> {
     console.log('Requesting article id=' + id);
     const url = `${this.articleUrl}/${id}`;
-    return this.http.get<Article>(url, this.httpOptions);
+    return this.http.get<Article>(url);
+    // return this.http.get<Article>(url, this.httpOptions);
   }
 
   updateArticle(article: Article): Observable<Article> {
     console.log('Updating article id=' + article.id);
-    return this.http.post<Article>(this.articleUrl, article, this.httpOptions);
+    return this.http.post<Article>(this.articleUrl, article);
+    //return this.http.post<Article>(this.articleUrl, article, this.httpOptions);
   }
 
   createArticle(article: Article): Observable<Article> {
     console.log('Creating article');
     console.log(article);
-    return this.http.post<Article>(this.articleUrl, article, this.httpOptions);
+    return this.http.post<Article>(this.articleUrl, article);
+    //return this.http.post<Article>(this.articleUrl, article, this.httpOptions);
   }
 }

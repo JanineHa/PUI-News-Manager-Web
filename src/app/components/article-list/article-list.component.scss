@@ -1,25 +1,25 @@
-.article-list{
+.article-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 24px;
   grid-row-gap: 24px;
 }
 
-.article-list__card{
+.article-list__card {
   display: flex;
   flex-direction: column;
-  border: 1px solid turquoise;
+  border: 1px solid #06f9c4;
   border-radius: 10px;
 }
 
-.article-thumbnail{
+.article-thumbnail {
   display: flex;
   justify-content: center;
   cursor: pointer;
   margin-top: 16px;
 }
 
-.article-content{
+.article-content {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -28,54 +28,62 @@
   height: 100%;
 }
 
-.article-info{
+.article-info {
   width: 100%;
 }
 
-.article-info__category{
+.article-info__category {
   display: flex;
-  justify-content: flex-end;
-  margin: 4px 0;
-  color: lightgrey
+  justify-content: center;
+  margin: 6px 0;
+  font-size: 13px;
+  color: lightgrey;
 }
 
-.article-info__title{
+.article-info__title {
   text-align: center;
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 2px;
+  margin: 30px 0 16px 0;
   cursor: pointer;
 }
 
-.article-info__subtitle{
+.article-info__subtitle {
   text-align: center;
-  margin-bottom: 16px;
+  font-size: 15px;
+  margin-bottom: 15px;
 }
 
-.article-action-buttons{
+.article-action-buttons {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
-
 .create-article-button,
 .edit-article-button,
-.remove-article-button{
+.remove-article-button {
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 4px;
+  padding: 6px 12px;
   margin-top: 12px;
+  cursor: pointer;
 }
 
-.create-article-button{
-  background-color:darkgreen;
+.create-article-button__container {
+  text-align: center;
+}
+.create-article-button {
+  background-color: #6d2e46;
+  font-size: 1.4em;
+  margin-top: 1.8em;
+  padding: 8px 16px;
 }
 
-.edit-article-button{
-  background-color:darkgrey;
+.edit-article-button {
+  background-color: #544e66;
 }
 
-.remove-article-button{
-  background-color:darkred;
+.remove-article-button {
+  background-color: #ef8354;
 }

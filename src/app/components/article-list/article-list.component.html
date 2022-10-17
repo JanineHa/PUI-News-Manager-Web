@@ -1,54 +1,64 @@
-<p *ngIf="flashMessage">{{flashMessage}}<button (click)="hideFlash()">X</button></p>
-<div class="article-list">
-  <div
-    *ngFor="let article of articleList | filter:getFilterTerm() | filterCategory:getCategory()"
-    class="article-list__card"
-  >
-    <div class="article-thumbnail">
-      <img
-        *ngIf="article.thumbnail_image"
-        [src]="'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image "
-        [routerLink]="['/detailPage', article.id]"
-      >
-    </div>
-    <div class="article-content">
-      <div class="article-info">
-        <span class="article-info__category">
-          {{article.category}}
-        </span>
-        <p
-          class="article-info__title"
+<p *ngIf="flashMessage">
+  {{ flashMessage }}<button (click)="hideFlash()">X</button>
+</p>
+<div>
+  <div class="article-list">
+    <div
+      *ngFor="
+        let article of articleList
+          | filter: getFilterTerm()
+          | filterCategory: getCategory()
+      "
+      class="article-list__card"
+    >
+      <div class="article-thumbnail">
+        <img
+          *ngIf="article.thumbnail_image"
+          [src]="
+            'data:' +
+            article.thumbnail_media_type +
+            ';base64,' +
+            article.thumbnail_image
+          "
           [routerLink]="['/detailPage', article.id]"
-        >
-          {{article.title}}
-        </p>
-        <p class="article-info__subtitle">
-          {{article.subtitle}}
-        </p>
-        <p>{{article.abstract}}</p>
+        />
       </div>
-      <div
-        *ngIf="userLogged()"
-        class="article-action-buttons">
-        <button
-          class="create-article-button"
-          routerLink="/createPage"
-        >
-          Create
-        </button>
-        <button
-          class="edit-article-button"
-          [routerLink]="['/editPage', article.id]"
-        >
-          Edit
-        </button>
-        <button
-          class="remove-article-button"
-          (click)="removeArticle(article.id)"
-        >
-          Remove
-        </button>
+      <div class="article-content">
+        <div class="article-info">
+          <span class="article-info__category">
+            {{ article.category }}
+          </span>
+          <p
+            class="article-info__title"
+            [routerLink]="['/detailPage', article.id]"
+          >
+            {{ article.title }}
+          </p>
+          <p class="article-info__subtitle">
+            {{ article.subtitle }}
+          </p>
+          <p class="article-info__subtitle">{{ article.abstract }}</p>
+        </div>
+        <div *ngIf="userLogged()" class="article-action-buttons">
+          <button
+            class="remove-article-button"
+            (click)="removeArticle(article.id)"
+          >
+            Remove
+          </button>
+          <button
+            class="edit-article-button"
+            [routerLink]="['/editPage', article.id]"
+          >
+            Edit
+          </button>
+        </div>
       </div>
     </div>
+  </div>
+  <div *ngIf="userLogged()" class="create-article-button__container">
+    <button class="create-article-button" routerLink="/createPage">
+      Create a new article
+    </button>
   </div>
 </div>

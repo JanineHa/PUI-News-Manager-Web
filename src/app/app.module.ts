@@ -16,6 +16,7 @@ import { CreatePageComponent } from './pages/create-page/create-page.component';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FilterCategoryPipe } from './pipes/filter-category.pipe';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,15 @@ import { FilterCategoryPipe } from './pipes/filter-category.pipe';
     CreatePageComponent,
     FilterCategoryPipe,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, FormsModule, Ng2SearchPipeModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    Ng2SearchPipeModule,
+    EditorModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

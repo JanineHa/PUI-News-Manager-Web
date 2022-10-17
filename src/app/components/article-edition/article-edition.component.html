@@ -1,57 +1,118 @@
+<div>
+  <h2 class="article-editon__title">Edit Article</h2>
+  <form *ngIf="userLogged(); else message" #articleForm="ngForm">
+    <div class="article-edition__input-container">
+      <p>Title<abbr title="required">*</abbr></p>
+      <textarea
+        type="text"
+        required
+        [(ngModel)]="article.title"
+        name="title"
+        #title="ngModel"
+        class="article-edition__input"
+      ></textarea>
+      <div *ngIf="title.invalid && !title.pristine">Please provide a title</div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Subtitle<abbr title="required">*</abbr></p>
+      <textarea
+        type="text"
+        required
+        [(ngModel)]="article.subtitle"
+        name="subtitle"
+        #subtitle="ngModel"
+        class="article-edition__input"
+      ></textarea>
+      <div *ngIf="subtitle.invalid && !subtitle.pristine">
+        Please provide a subtitle
+      </div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Category<abbr title="required">*</abbr></p>
+      <select
+        [(ngModel)]="article.category"
+        required
+        name="category"
+        #category="ngModel"
+        class="article-edition__input"
+      >
+        <option style="color: #544e66" value="National">National</option>
+        <option style="color: #544e66" value="Economy">Economy</option>
+        <option style="color: #544e66" value="Sports">Sports</option>
+        <option style="color: #544e66" value="Technology">Technology</option>
+      </select>
+      <div *ngIf="category.invalid && !category.pristine">
+        Please provide a category
+      </div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Abstract<abbr title="required">*</abbr></p>
+      <textarea
+        type="text"
+        rows="5"
+        required
+        [(ngModel)]="article.abstract"
+        name="abstract"
+        #abstract="ngModel"
+        class="article-edition__input"
+      ></textarea>
+      <div *ngIf="abstract.invalid && !abstract.pristine">
+        Please provide an abstract
+      </div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Image<abbr title="required">*</abbr></p>
+      <img
+        *ngIf="article.image_data; else elseImage"
+        [src]="
+          'data:' + article.image_media_type + ';base64,' + article.image_data
+        "
+        class="artice-edition__image"
+      />
+      <ng-template #elseImage>
+        <input
+          type="file"
+          name="myImage"
+          accept="image/png, image/gif, image/jpeg"
+          class="article-edition__input"
+        />
+      </ng-template>
+      <div *ngIf="abstract.invalid && !abstract.pristine">
+        Please provide an image
+      </div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Body</p>
 
-<form
-  *ngIf="userLogged(); else message"
-  #articleForm="ngForm">
-  <p>Title<abbr title="required">*</abbr></p>
-  <input
-      type="text"
-      required
-      [(ngModel)]="article.title"
-      name="title"
-      #title="ngModel"
-  >
-  <div *ngIf="title.invalid && !title.pristine"> Please provide a title</div>
-  <p>Subtitle<abbr title="required">*</abbr></p>
-  <input
-      type="text"
-      required
-      [(ngModel)]="article.subtitle"
-      name="subtitle"
-      #subtitle="ngModel"
-  >
-  <div *ngIf="subtitle.invalid && !subtitle.pristine"> Please provide a subtitle</div>
-  <p>Category<abbr title="required">*</abbr></p>
-  <select
-      [(ngModel)]="article.category"
-      required
-      name="category"
-      #category="ngModel"
-  >
-      <option value="National">National</option>
-      <option value="Economy">Economy</option>
-      <option value="Sports">Sports</option>
-      <option value="Technology">Technology</option>
-    </select>
-  <div *ngIf="category.invalid && !category.pristine"> Please provide a category</div>
-  <p>Abstract<abbr title="required">*</abbr></p>
-  <input
-      type="text"
-      required
-      [(ngModel)]="article.abstract"
-      name="abstract"
-      #abstract="ngModel"
-  >
-  <div *ngIf="abstract.invalid && !abstract.pristine"> Please provide an abstract</div>
-  <p>Body</p>
-  <textarea
-      [(ngModel)]="article.body"
-      name="body"
-      #body="ngModel">
-  </textarea>
-  <button (click)="save()" type="submit" [disabled]="!articleForm.form.valid">Save Article</button>
-  <button routerLink="/">Go back</button>
-</form>
+      <editor
+        [init]="{
+          base_url: '/tinymce',
+          suffix: '.min',
+          resize: false
+        }"
+        [(ngModel)]="article.body"
+        id="bodytextarea"
+        name="body"
+        #body="ngModel"
+        class="article-edition__input"
+      ></editor>
+    </div>
+    <div class="article-edition__buttons">
+      <button class="back-to-startpage-button" routerLink="/">
+        Back to Startpage
+      </button>
+      <button
+        (click)="save()"
+        type="submit"
+        [disabled]="!articleForm.form.valid"
+        class="save-article-button"
+      >
+        Save Article
+      </button>
+    </div>
+  </form>
 
-<ng-template #message>
-  <p> You are not authorized to access this page.</p>
-</ng-template>
+  <ng-template #message>
+    <p>You are not authorized to access this page.</p>
+  </ng-template>
+</div>

@@ -20,7 +20,7 @@ export class LoginService {
   };
 
   constructor(private http: HttpClient, private newsService: NewsService) {
-    this.user = null
+    this.user = { username: 'DEV_TEAM_07', password: '123707@3' };
     this.message = '';
   }
 
@@ -33,7 +33,7 @@ export class LoginService {
     return this.http.post<User>(this.loginUrl, usereq).pipe(
       tap((user) => {
         this.user = user;
-        this.newsService.setUserApiKey(user.apikey!)
+        this.newsService.setUserApiKey(user.apikey!);
       })
     );
   }
@@ -44,7 +44,7 @@ export class LoginService {
 
   logout() {
     this.user = null;
-    this.newsService.setAnonymousApiKey()
+    this.newsService.setAnonymousApiKey();
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

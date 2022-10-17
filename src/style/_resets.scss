@@ -51,11 +51,22 @@ h6 {
   isolation: isolate;
 }
 
-input {
+input,
+textarea,
+select {
   background: transparent;
   border: 1px solid white;
-  border-radius: 2px;
+  border-radius: 4px;
   color: white;
+  &:hover {
+    border: 1px solid rgb(36, 235, 189);
+  }
+
+  &:focus-visible,
+  &:active {
+    outline: none;
+    border: 1px solid rgb(36, 235, 189);
+  }
 }
 
 body {
@@ -80,4 +91,17 @@ body {
       hsla(167, 95%, 50%, 1) 0,
       hsla(293, 87%, 67%, 0) 50%
     );
+}
+.back-to-startpage-container {
+  text-align: center;
+}
+.back-to-startpage-button {
+  color: white;
+  background-color: #6d2e46;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin-top: 12px;
+  cursor: pointer;
 }
