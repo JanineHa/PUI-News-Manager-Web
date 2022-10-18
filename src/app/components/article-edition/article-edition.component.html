@@ -3,61 +3,83 @@
   <form *ngIf="userLogged(); else message" #articleForm="ngForm">
     <div class="article-edition__input-container">
       <p>Title<abbr title="required">*</abbr></p>
-      <textarea
-        type="text"
-        required
-        [(ngModel)]="article.title"
-        name="title"
-        #title="ngModel"
-        class="article-edition__input"
-      ></textarea>
-      <div *ngIf="title.invalid && !title.pristine">Please provide a title</div>
+      <div class="article-edition__input-error-container">
+        <textarea
+          type="text"
+          required
+          [(ngModel)]="article.title"
+          name="title"
+          #title="ngModel"
+          class="article-edition__input"
+        ></textarea>
+        <div
+          *ngIf="title.touched &&title.errors?.['required'] "
+          class="article-edition__input-error"
+        >
+          Please provide a title!
+        </div>
+      </div>
     </div>
     <div class="article-edition__input-container">
       <p>Subtitle<abbr title="required">*</abbr></p>
-      <textarea
-        type="text"
-        required
-        [(ngModel)]="article.subtitle"
-        name="subtitle"
-        #subtitle="ngModel"
-        class="article-edition__input"
-      ></textarea>
-      <div *ngIf="subtitle.invalid && !subtitle.pristine">
-        Please provide a subtitle
+      <div class="article-edition__input-error-container">
+        <textarea
+          type="text"
+          required
+          [(ngModel)]="article.subtitle"
+          name="subtitle"
+          #subtitle="ngModel"
+          class="article-edition__input"
+        ></textarea>
+        <div
+          *ngIf="subtitle.touched && subtitle.errors?.['required']"
+          class="article-edition__input-error"
+        >
+          Please provide a subtitle!
+        </div>
       </div>
     </div>
     <div class="article-edition__input-container">
       <p>Category<abbr title="required">*</abbr></p>
-      <select
-        [(ngModel)]="article.category"
-        required
-        name="category"
-        #category="ngModel"
-        class="article-edition__input"
-      >
-        <option style="color: #544e66" value="National">National</option>
-        <option style="color: #544e66" value="Economy">Economy</option>
-        <option style="color: #544e66" value="Sports">Sports</option>
-        <option style="color: #544e66" value="Technology">Technology</option>
-      </select>
-      <div *ngIf="category.invalid && !category.pristine">
-        Please provide a category
+      <div class="article-edition__input-error-container">
+        <select
+          [(ngModel)]="article.category"
+          required
+          name="category"
+          #category="ngModel"
+          class="article-edition__input"
+        >
+          <option style="color: #544e66" value="National">National</option>
+          <option style="color: #544e66" value="Economy">Economy</option>
+          <option style="color: #544e66" value="Sports">Sports</option>
+          <option style="color: #544e66" value="Technology">Technology</option>
+        </select>
+        <div
+          *ngIf="category.touched&& category.errors?.['required']"
+          class="article-edition__input-error"
+        >
+          Please choose a category.
+        </div>
       </div>
     </div>
     <div class="article-edition__input-container">
       <p>Abstract<abbr title="required">*</abbr></p>
-      <textarea
-        type="text"
-        rows="5"
-        required
-        [(ngModel)]="article.abstract"
-        name="abstract"
-        #abstract="ngModel"
-        class="article-edition__input"
-      ></textarea>
-      <div *ngIf="abstract.invalid && !abstract.pristine">
-        Please provide an abstract
+      <div class="article-edition__input-error-container">
+        <textarea
+          type="text"
+          rows="5"
+          required
+          [(ngModel)]="article.abstract"
+          name="abstract"
+          #abstract="ngModel"
+          class="article-edition__input"
+        ></textarea>
+        <div
+          *ngIf="abstract.touched && abstract.errors?.['required']"
+          class="article-edition__input-error"
+        >
+          Please provide an abstract
+        </div>
       </div>
     </div>
     <div class="article-edition__input-container">

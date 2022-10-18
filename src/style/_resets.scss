@@ -105,3 +105,18 @@ body {
   margin-top: 12px;
   cursor: pointer;
 }
+
+.flash-message {
+  text-align: center;
+  color: #ef8354;
+  font-size: 1.2em;
+}
+.flash-button {
+  background-color: #6d2e46;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.2em;
+  margin-left: 4px;
+  cursor: pointer;
+}

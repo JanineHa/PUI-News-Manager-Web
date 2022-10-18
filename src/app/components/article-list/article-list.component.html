@@ -1,5 +1,6 @@
-<p *ngIf="flashMessage">
-  {{ flashMessage }}<button (click)="hideFlash()">X</button>
+<p *ngIf="flashMessage" class="flash-message">
+  {{ flashMessage
+  }}<button class="flash-button" (click)="hideFlash()">X</button>
 </p>
 <div>
   <div *ngIf="userLogged()" class="create-article-button__container">

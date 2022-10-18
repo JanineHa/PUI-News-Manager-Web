@@ -10,11 +10,12 @@
   </p>
   <div class="article-image__container">
     <img
-      *ngIf="article.image_data"
+      *ngIf="article.image_data; else elseImage"
       [src]="
         'data:' + article.image_media_type + ';base64,' + article.image_data
       "
     />
+    <ng-template #elseImage> This article has no image. </ng-template>
   </div>
   <p [innerHTML]="article.abstract" class="article-abstract"></p>
   <p [innerHTML]="article.body"></p>
