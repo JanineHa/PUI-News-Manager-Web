@@ -1,8 +1,15 @@
+@import "../../../style/breakpoints";
 .article-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 24px;
   grid-row-gap: 24px;
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 24px;
+  }
 }
 
 .article-list__card {
@@ -75,8 +82,8 @@
 }
 .create-article-button {
   background-color: #6d2e46;
-  font-size: 1.4em;
-  margin-bottom: 1.8em;
+  font-size: 1.2em;
+  margin-bottom: 1.4em;
   padding: 8px 16px;
 }
 
