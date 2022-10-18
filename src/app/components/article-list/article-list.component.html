@@ -2,6 +2,11 @@
   {{ flashMessage }}<button (click)="hideFlash()">X</button>
 </p>
 <div>
+  <div *ngIf="userLogged()" class="create-article-button__container">
+    <button class="create-article-button" routerLink="/createPage">
+      Create a new article
+    </button>
+  </div>
   <div class="article-list">
     <div
       *ngFor="
@@ -55,10 +60,5 @@
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="userLogged()" class="create-article-button__container">
-    <button class="create-article-button" routerLink="/createPage">
-      Create a new article
-    </button>
   </div>
 </div>
