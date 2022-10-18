@@ -61,7 +61,7 @@
       </div>
     </div>
     <div class="article-edition__input-container">
-      <p>Image<abbr title="required">*</abbr></p>
+      <p>Image</p>
       <img
         *ngIf="article.image_data; else elseImage"
         [src]="
@@ -77,13 +77,9 @@
           class="article-edition__input"
         />
       </ng-template>
-      <div *ngIf="abstract.invalid && !abstract.pristine">
-        Please provide an image
-      </div>
     </div>
     <div class="article-edition__input-container">
       <p>Body</p>
-
       <editor
         [init]="{
           base_url: '/tinymce',
