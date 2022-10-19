@@ -94,7 +94,10 @@
       <ng-template #elseImage>
         <input
           type="file"
+          [(ngModel)]="article.image_data"
+          (change)="fileChangeEvent(article.image_data)"
           name="myImage"
+          #myImage="ngModel"
           accept="image/png, image/gif, image/jpeg"
           class="article-edition__input"
         />
