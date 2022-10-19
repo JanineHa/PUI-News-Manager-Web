@@ -2,17 +2,68 @@
   <div *ngIf="!userIsLogged()" class="login-bar__element">
     <span class="material-icons login-bar__icon">person</span>
     <label for="user"></label>
-    <input id="user" size="15" placeholder="Username" [(ngModel)]="loginData.username" name="username"/>
+    <input
+      id="userId"
+      name="userName"
+      size="15"
+      required
+      placeholder="Username"
+      type="text"
+      value=""
+      #userName="ngModel"
+      [(ngModel)]="loginData.username"
+    />
+    <div
+      *ngIf="userName.touched && userName.errors?.['required']"
+      class="login-bar__input-error"
+    >
+      Please provide a username!
+    </div>
   </div>
+
   <div *ngIf="!userIsLogged()" class="login-bar__element">
     <span class="material-icons login-bar__icon">password</span>
     <label for="password"></label>
-    <input id="password" size="15" placeholder="Password" [(ngModel)]="loginData.password" name="password"/>
+    <input
+      id="passwordId"
+      name="passwordName"
+      size="15"
+      required
+      value=""
+      placeholder="Password"
+      type="text"
+      #passwordName="ngModel"
+      [(ngModel)]="loginData.password"
+      style="-webkit-text-security: circle"
+    />
+
+    <div
+      *ngIf="passwordName.touched && passwordName.errors?.['required']"
+      class="login-bar__input-error"
+    >
+      Please provide a password!
+    </div>
   </div>
-  <p *ngIf="userIsLogged()">Hello {{loginData.username}}</p>
-  <div class="login-bar__element">
-    <button *ngIf="!userIsLogged()" type="button" class="btn btn-default" (click)="login()">Login</button>
-    <button *ngIf="userIsLogged()" type="button" class="btn btn-default" (click)="logout()">Logout</button>
+  <p *ngIf="userIsLogged()" class="login-bar__greeting">
+    Hello {{ loginData.username }}!
+  </p>
+  <div>
+    <button
+      *ngIf="!userIsLogged()"
+      type="button"
+      class="login-bar__button"
+      (click)="login()"
+    >
+      Login
+    </button>
+    <button
+      *ngIf="userIsLogged()"
+      type="button"
+      class="login-bar__button"
+      (click)="logout()"
+    >
+      Logout
+    </button>
   </div>
 </div>
-<p *ngIf="error">{{error}}</p>
+<p *ngIf="error" class="login-bar__error">{{ error }}</p>

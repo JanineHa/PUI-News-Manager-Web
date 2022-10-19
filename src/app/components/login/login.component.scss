@@ -2,8 +2,10 @@
 .login-bar__container {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   @include tablet {
     flex-direction: row;
+    align-items: flex-start;
   }
 }
 
@@ -11,6 +13,7 @@
   margin-bottom: 8px;
   line-height: 1.8em;
   @include tablet {
+    width: 210px;
     line-height: normal;
     margin-right: 10px;
     margin-bottom: 0;
@@ -19,4 +22,28 @@
 .login-bar__icon {
   margin-right: 4px;
   vertical-align: sub;
+}
+
+.login-bar__button {
+  background-color: #6d2e46;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.1em;
+  padding: 0.2em 0.6em;
+  margin-left: 1.2em;
+  cursor: pointer;
+}
+.login-bar__greeting {
+  line-height: 1.7;
+}
+.login-bar__error {
+  color: #ef8354;
+  margin: 0.2em 0 0 2.3em;
+  font-size: 0.7em;
+}
+.login-bar__input-error {
+  color: #ef8354;
+  margin: 0.2em 0 0 2.3em;
+  font-size: 0.7em;
 }
