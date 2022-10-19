@@ -1,35 +1,40 @@
-.article-title{
+.article-detail__container {
+  padding-top: 2em;
+}
+.article-title {
   text-align: center;
   font-size: 40px;
   font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.article-subtitle,
-.article-category {
-  text-align: center;
-  font-size: 24px;
   margin-bottom: 8px;
 }
 
-.article-category{
-  margin-bottom: 12px;
+.article-subtitle {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.article-category {
+  font-size: 0.9em;
+  text-align: right;
+  margin-bottom: 0.2em;
 }
 
-.article-abstract{
+.article-abstract {
   text-align: center;
-  margin-bottom: 24px;
+  font-size: 1em;
+  margin-bottom: 2em;
   font-weight: 600;
 }
 
-.article-image__container{
+.article-image__container {
   display: flex;
   justify-content: center;
   margin-bottom: 12px;
   width: 100%;
 }
 
-.article-modification{
-  margin-top: 52px;
+.article-modification {
+  margin: 3em 0;
+  font-size: 0.9em;
   text-align: right;
 }

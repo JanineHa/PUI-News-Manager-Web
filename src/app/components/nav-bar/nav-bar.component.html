@@ -1,10 +1,20 @@
 <nav class="navBar-container" id="navBar">
   <a class="navBar-icon__container" (click)="openMenu()">
-    <span class="material-icons navBar-icon">menu</span>
+    <span class="material-icons navBar-icon" (click)="openMenu()">menu</span>
   </a>
-  <a>National</a>
-  <a>Economy</a>
-  <a>Sport</a>
-  <a>Technology</a>
-  <a>All</a>
+  <div class="navBar-category__container">
+    <a (click)="setCategory('National')" class="navBar-category">National</a>
+    <a (click)="setCategory('Economy')" class="navBar-category">Economy</a>
+    <a (click)="setCategory('Sports')" class="navBar-category">Sport</a>
+    <a (click)="setCategory('Technology')" class="navBar-category"
+      >Technology</a
+    >
+    <a (click)="setCategory('')" class="navBar-category">All</a>
+  </div>
+  <input
+    type="text"
+    placeholder="Enter search term"
+    (input)="updateFilterTerm($any($event.target).value)"
+    class="navBar-filter__input"
+  />
 </nav>

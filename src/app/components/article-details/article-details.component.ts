@@ -12,7 +12,7 @@ import { Inject } from '@angular/core';
 export class ArticleDetailsComponent implements OnInit {
   article: Article
 
-  constructor(private newsService: NewsService,  @Inject(ActivatedRoute) private route : ActivatedRoute) {
+  constructor(private newsService: NewsService, @Inject(ActivatedRoute) private route: ActivatedRoute) {
     this.article = { title: "", subtitle: "", category: "", abstract: "", update_date: "", username: ""}
     this.newsService.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(article => this.article = article)
    }

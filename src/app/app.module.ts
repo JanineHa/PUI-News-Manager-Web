@@ -13,7 +13,10 @@ import { ArticleEditionComponent } from './components/article-edition/article-ed
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
 import { CreatePageComponent } from './pages/create-page/create-page.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterCategoryPipe } from './pipes/filter-category.pipe';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -27,8 +30,17 @@ import { FormsModule } from '@angular/forms';
     ArticleListComponent,
     EditPageComponent,
     CreatePageComponent,
+    FilterCategoryPipe,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, FormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    Ng2SearchPipeModule,
+    EditorModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

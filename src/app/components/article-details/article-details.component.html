@@ -1,20 +1,31 @@
-<p class="article-title">
-  {{article.title}}
-</p>
-<p class="article-subtitle">
-  {{article.subtitle}}
-</p>
-<p class="article-category">
-  {{article.category}}
-</p>
-<div class="article-image__container">
-  <img
-    *ngIf="article.image_data"
-    [src]="'data:' + article.image_media_type + ';base64,' + article.image_data "
-  >
+<div class="article-detail__container">
+  <p class="article-title">
+    {{ article.title }}
+  </p>
+  <p class="article-subtitle">
+    {{ article.subtitle }}
+  </p>
+  <p class="article-category">
+    {{ article.category }}
+  </p>
+  <div class="article-image__container">
+    <img
+      *ngIf="article.image_data; else elseImage"
+      [src]="
+        'data:' + article.image_media_type + ';base64,' + article.image_data
+      "
+    />
+    <ng-template #elseImage> This article has no image. </ng-template>
+  </div>
+  <p [innerHTML]="article.abstract" class="article-abstract"></p>
+  <p [innerHTML]="article.body"></p>
+  <p class="article-modification">
+    last modified on <strong>{{ article.update_date }}</strong> by
+    <strong>{{ article.username }}</strong>
+  </p>
+  <div class="back-to-startpage-container">
+    <button class="back-to-startpage-button" routerLink="/">
+      Back to Startpage
+    </button>
+  </div>
 </div>
-<p [innerHTML]="article.abstract" class="article-abstract"></p>
-<p [innerHTML]="article.body"></p>
-<p class="article-modification">
-  last modified on <strong>{{ article.update_date }}</strong> by <strong>{{ article.username }}</strong>
-</p>

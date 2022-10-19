@@ -1,1 +1,135 @@
-<p>article-edition works!</p>
+<div>
+  <h2 class="article-editon__title">Edit Article</h2>
+  <form *ngIf="userLogged(); else message" #articleForm="ngForm">
+    <div class="article-edition__input-container">
+      <p>Title<abbr title="required">*</abbr></p>
+      <div class="article-edition__input-error-container">
+        <textarea
+          type="text"
+          required
+          [(ngModel)]="article.title"
+          name="title"
+          #title="ngModel"
+          class="article-edition__input"
+        ></textarea>
+        <div
+          *ngIf="title.touched &&title.errors?.['required'] "
+          class="article-edition__input-error"
+        >
+          Please provide a title!
+        </div>
+      </div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Subtitle<abbr title="required">*</abbr></p>
+      <div class="article-edition__input-error-container">
+        <textarea
+          type="text"
+          required
+          [(ngModel)]="article.subtitle"
+          name="subtitle"
+          #subtitle="ngModel"
+          class="article-edition__input"
+        ></textarea>
+        <div
+          *ngIf="subtitle.touched && subtitle.errors?.['required']"
+          class="article-edition__input-error"
+        >
+          Please provide a subtitle!
+        </div>
+      </div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Category<abbr title="required">*</abbr></p>
+      <div class="article-edition__input-error-container">
+        <select
+          [(ngModel)]="article.category"
+          required
+          name="category"
+          #category="ngModel"
+          class="article-edition__input"
+        >
+          <option style="color: #544e66" value="National">National</option>
+          <option style="color: #544e66" value="Economy">Economy</option>
+          <option style="color: #544e66" value="Sports">Sports</option>
+          <option style="color: #544e66" value="Technology">Technology</option>
+        </select>
+        <div
+          *ngIf="category.touched&& category.errors?.['required']"
+          class="article-edition__input-error"
+        >
+          Please choose a category.
+        </div>
+      </div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Abstract<abbr title="required">*</abbr></p>
+      <div class="article-edition__input-error-container">
+        <textarea
+          type="text"
+          rows="5"
+          required
+          [(ngModel)]="article.abstract"
+          name="abstract"
+          #abstract="ngModel"
+          class="article-edition__input"
+        ></textarea>
+        <div
+          *ngIf="abstract.touched && abstract.errors?.['required']"
+          class="article-edition__input-error"
+        >
+          Please provide an abstract
+        </div>
+      </div>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Image</p>
+      <img
+        *ngIf="article.image_data; else elseImage"
+        [src]="
+          'data:' + article.image_media_type + ';base64,' + article.image_data
+        "
+        class="artice-edition__image"
+      />
+      <ng-template #elseImage>
+        <input
+          type="file"
+          name="myImage"
+          accept="image/png, image/gif, image/jpeg"
+          class="article-edition__input"
+        />
+      </ng-template>
+    </div>
+    <div class="article-edition__input-container">
+      <p>Body</p>
+      <editor
+        [init]="{
+          base_url: '/tinymce',
+          suffix: '.min',
+          resize: false
+        }"
+        [(ngModel)]="article.body"
+        name="body"
+        #body="ngModel"
+        class="article-edition__input"
+      ></editor>
+    </div>
+    <div class="article-edition__buttons">
+      <button class="back-to-startpage-button" routerLink="/">
+        Back to Startpage
+      </button>
+      <button
+        (click)="save()"
+        type="submit"
+        [disabled]="!articleForm.form.valid"
+        class="save-article-button"
+      >
+        Save Article
+      </button>
+    </div>
+  </form>
+
+  <ng-template #message>
+    <p>You are not authorized to access this page.</p>
+  </ng-template>
+</div>

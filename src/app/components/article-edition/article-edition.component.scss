@@ -1,0 +1,51 @@
+.article-editon__title {
+  font-size: 1.8em;
+  text-align: center;
+  margin: 2em 0 1.5em 0;
+}
+.article-edition__input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.1em;
+}
+
+.article-edition__input {
+  width: 60vw;
+  resize: none;
+}
+.article-edition__input-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+.article-edition__input-error {
+  color: #ef8354;
+  margin-top: 2px;
+  font-size: 0.9em;
+}
+
+.artice-edition__image {
+  width: 75%;
+}
+
+.article-edition__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.save-article-button {
+  color: white;
+  background-color: #ef8354;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin-top: 12px;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: white;
+    color: #ef8354;
+  }
+}
