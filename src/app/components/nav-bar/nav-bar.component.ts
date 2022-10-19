@@ -10,7 +10,7 @@ import { ArticleListComponent } from '../article-list/article-list.component';
 export class NavBarComponent implements OnInit {
   toggle: Boolean;
   constructor(private filterService: FilterService) {
-    this.toggle = false;
+    this.toggle = true;
   }
 
   ngOnInit(): void {}
@@ -20,18 +20,16 @@ export class NavBarComponent implements OnInit {
         'navBar-category'
       ) as HTMLCollectionOf<HTMLElement>
     );
-    this.toggle = true;
-    console.log(this.toggle);
     if (this.toggle) {
       for (var i = 1; i < x.length; i++) {
         x[i].style.display = 'block';
       }
-      this.toggle = false;
+      this.toggle = !this.toggle;
     } else {
       for (var i = 1; i < x.length; i++) {
         x[i].style.display = 'none';
       }
-      console.log(this.toggle);
+      this.toggle = !this.toggle;
     }
   }
 
