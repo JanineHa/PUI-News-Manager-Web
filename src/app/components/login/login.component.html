@@ -1,12 +1,18 @@
 <div class="login-bar__container">
-  <div class="login-bar__element">
+  <div *ngIf="!userIsLogged()" class="login-bar__element">
     <span class="material-icons login-bar__icon">person</span>
     <label for="user"></label>
-    <input id="user" size="15" />
+    <input id="user" size="15" placeholder="Username" [(ngModel)]="loginData.username" name="username"/>
   </div>
-  <div class="login-bar__element">
+  <div *ngIf="!userIsLogged()" class="login-bar__element">
     <span class="material-icons login-bar__icon">password</span>
     <label for="password"></label>
-    <input id="password" size="15" />
+    <input id="password" size="15" placeholder="Password" [(ngModel)]="loginData.password" name="password"/>
+  </div>
+  <p *ngIf="userIsLogged()">Hello {{loginData.username}}</p>
+  <div class="login-bar__element">
+    <button *ngIf="!userIsLogged()" type="button" class="btn btn-default" (click)="login()">Login</button>
+    <button *ngIf="userIsLogged()" type="button" class="btn btn-default" (click)="logout()">Logout</button>
   </div>
 </div>
+<p *ngIf="error">{{error}}</p>

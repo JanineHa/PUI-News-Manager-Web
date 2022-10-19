@@ -20,7 +20,7 @@ export class LoginService {
   };
 
   constructor(private http: HttpClient, private newsService: NewsService) {
-    this.user = { username: 'DEV_TEAM_07', password: '123707@3' };
+    this.user = null;
     this.message = '';
   }
 
