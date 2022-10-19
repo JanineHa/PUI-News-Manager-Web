@@ -35,9 +35,12 @@ export class ArticleListComponent implements OnInit {
 
   removeArticle(id: any):void {
     if (window.confirm("Do you really want to delete this article?")) {
-      this.newsService.deleteArticle(Number(id)).subscribe(x => {
+      this.newsService.deleteArticle(Number(id)).subscribe(response => {
         this.newsService.getArticles().subscribe(list => this.articleList = list)
         this.flashService.setFlashMessage("Article was removed successfully!")
+        this.flashMessage = this.flashService.getFlashMessage()
+      }, err => {
+        this.flashService.setFlashMessage("An error occured!")
         this.flashMessage = this.flashService.getFlashMessage()
       })
     }

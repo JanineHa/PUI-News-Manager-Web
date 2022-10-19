@@ -10,9 +10,11 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class LoginComponent implements OnInit {
   loginData: User
+  error: String
 
   constructor(private loginService: LoginService,  private newsService: NewsService) {
-    this.loginData ={username: "", password: "", apikey : ""}
+    this.loginData = { username: "", password: "", apikey: "" }
+    this.error = ""
    }
 
 
@@ -20,7 +22,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void{
-    this.loginService.login(this.loginData.username!, this.loginData.password!).subscribe()
+    this.loginService.login(this.loginData.username!, this.loginData.password!).subscribe(
+      (response) => {
+        console.log('Login successful')
+        this.error = ""
+      },
+      (error) => {
+        console.error('Login unsuccessful')
+        this.error = "Login unsuccessful"
+      }
+    )
   }
 
   logout(): void {
