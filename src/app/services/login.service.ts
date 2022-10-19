@@ -24,7 +24,7 @@ export class LoginService {
     this.message = '';
   }
 
-  isLogged() {
+  isLogged() {``
     return this.user != null;
   }
 

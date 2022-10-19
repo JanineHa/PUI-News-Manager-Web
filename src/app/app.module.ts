@@ -13,6 +13,7 @@ import { ArticleEditionComponent } from './components/article-edition/article-ed
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
 import { CreatePageComponent } from './pages/create-page/create-page.component';
+import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { CreatePageComponent } from './pages/create-page/create-page.component';
     EditPageComponent,
     CreatePageComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
