@@ -15,7 +15,9 @@
         'data:' + article.image_media_type + ';base64,' + article.image_data
       "
     />
-    <ng-template #elseImage> This article has no image. </ng-template>
+    <ng-template #elseImage>
+      <p class="article-image__error">This article has no image.</p>
+    </ng-template>
   </div>
   <p [innerHTML]="article.abstract" class="article-abstract"></p>
   <p [innerHTML]="article.body"></p>
