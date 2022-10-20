@@ -90,7 +90,7 @@ export class ArticleEditionComponent implements OnInit {
           this.isImageSaved = true;
 
           this.article.image_media_type = fileInput.target.files[0].type;
-          //const head = this.article.image_media_type.length + 13;
+          const head = this.article.image_media_type.length + 13;
           this.article.image_data = e.target.result.substring(
             head,
             e.target.result.length
