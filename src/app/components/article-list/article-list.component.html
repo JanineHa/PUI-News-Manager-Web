@@ -19,7 +19,7 @@
     >
       <div class="article-thumbnail">
         <img
-          *ngIf="article.thumbnail_image"
+          *ngIf="article.thumbnail_image; else elseImage"
           [src]="
             'data:' +
             article.thumbnail_media_type +
@@ -28,6 +28,10 @@
           "
           [routerLink]="['/detailPage', article.id]"
         />
+
+        <ng-template #elseImage>
+          <p class="article-thumbnail__error">This article has no image.</p>
+        </ng-template>
       </div>
       <div class="article-content">
         <div class="article-info">
