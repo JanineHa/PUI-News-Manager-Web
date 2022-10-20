@@ -40,7 +40,7 @@ export class ArticleEditionComponent implements OnInit {
     };
     this.imageError = null;
     this.isImageSaved = false;
-    this.cardImageBase64 = '';
+    this.cardImageBase64 = null;
 
     if (this.route.snapshot.paramMap.get('id')) {
       this.newsService
@@ -109,6 +109,8 @@ export class ArticleEditionComponent implements OnInit {
   }
 
   removeImage() {
+    this.article.image_media_type = '';
+    this.article.image_data = '';
     this.cardImageBase64 = null;
     this.isImageSaved = false;
   }

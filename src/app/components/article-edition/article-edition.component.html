@@ -113,9 +113,9 @@
     <button
       class="article-edition__remove-button"
       (click)="removeImage()"
-      *ngIf="isImageSaved"
+      *ngIf="isImageSaved || article.image_data"
     >
-      Remove selected image
+      Change image
     </button>
     <div class="article-edition__input-container">
       <p>Body</p>
