@@ -27,7 +27,7 @@ export class ArticleEditionComponent implements OnInit {
   ngOnInit(): void {}
 
   save() {
-    this.newsService.createArticle({ title: "a", subtitle: "a", category: "a", abstract: "a", update_date: "a", username: "a"}).subscribe(response => {
+    this.newsService.createArticle(this.article).subscribe(response => {
       this.router.navigate(['/'])
       this.flashService.setFlashMessage("Your article has been saved successfully!")
     }, err => {
