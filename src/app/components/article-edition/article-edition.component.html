@@ -91,15 +91,32 @@
         "
         class="artice-edition__image"
       />
-      <ng-template #elseImage>
-        <input
-          type="file"
-          name="myImage"
-          accept="image/png, image/gif, image/jpeg"
-          class="article-edition__input"
-        />
-      </ng-template>
     </div>
+    <ng-template #elseImage>
+      {{ imageError }}
+      <div>
+        <input
+          class="article-edition__file-input"
+          type="file"
+          (change)="fileChangeEvent($event)"
+        />
+        <div>
+          <ng-container *ngIf="isImageSaved; else elseTemplate">
+            <img [src]="cardImageBase64" />
+          </ng-container>
+          <ng-template #elseTemplate>
+            <img src="" />
+          </ng-template>
+        </div>
+      </div>
+    </ng-template>
+    <button
+      class="article-edition__remove-button"
+      (click)="removeImage()"
+      *ngIf="isImageSaved"
+    >
+      Remove selected image
+    </button>
     <div class="article-edition__input-container">
       <p>Body</p>
       <editor

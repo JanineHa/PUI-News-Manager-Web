@@ -1,3 +1,4 @@
+@import "./breakpoints";
 *,
 *::before,
 *::after {
@@ -98,12 +99,17 @@ body {
 .back-to-startpage-button {
   color: white;
   background-color: #6d2e46;
-  font-size: 1.2em;
+  font-size: 0.9em;
   border: none;
   border-radius: 5px;
-  padding: 6px 12px;
+  padding: 3px 6px;
   margin-top: 12px;
   cursor: pointer;
+
+  @include tablet {
+    padding: 6px 12px;
+    font-size: 1.2em;
+  }
 }
 
 .flash-message {
