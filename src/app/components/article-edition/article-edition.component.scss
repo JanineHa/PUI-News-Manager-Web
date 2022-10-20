@@ -1,3 +1,4 @@
+@import "../../../style/breakpoints";
 .article-editon__title {
   font-size: 1.8em;
   text-align: center;
@@ -9,10 +10,26 @@
   justify-content: space-between;
   margin-bottom: 1.1em;
 }
-
+.article-edition__remove-button {
+  color: #ef8354;
+  padding: 3px 6px;
+  margin-bottom: 16px;
+  margin-left: 40vw;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  @include phone {
+    font-size: 1em;
+  }
+}
 .article-edition__input {
   width: 60vw;
   resize: none;
+}
+
+.article-edition__file-input {
+  width: 60vw;
 }
 .article-edition__input-error-container {
   display: flex;
@@ -37,12 +54,17 @@
 .save-article-button {
   color: white;
   background-color: #ef8354;
-  font-size: 1.2em;
+  font-size: 0.9em;
   border: none;
   border-radius: 5px;
-  padding: 6px 12px;
+  padding: 3px 6px;
   margin-top: 12px;
   cursor: pointer;
+
+  @include tablet {
+    padding: 6px 12px;
+    font-size: 1.2em;
+  }
 
   &:disabled {
     background-color: white;

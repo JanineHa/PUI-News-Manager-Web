@@ -16,7 +16,7 @@ export class ArticleEditionComponent implements OnInit {
   article: Article;
   imageError: string | null;
   isImageSaved: boolean;
-  cardImageBase64: string;
+  cardImageBase64: string | null;
 
   @ViewChild('articleForm') emailForm: any;
 
@@ -65,18 +65,19 @@ export class ArticleEditionComponent implements OnInit {
   }
 
   fileChangeEvent(fileInput: any) {
-    console.log(fileInput);
     this.imageError = null;
     if (fileInput.target.files && fileInput.target.files[0]) {
       // Size Filter Bytes
-      const MAX_SIZE = 20971520;
-      const ALLOWED_TYPES = ['image/png', 'image/jpeg'];
+      const max_size = 20971520;
+      const allowed_types = ['image/png', 'image/jpeg'];
 
-      if (fileInput.target.files[0].size > MAX_SIZE) {
-        this.imageError = 'Maximum size allowed is ' + MAX_SIZE / 1000 + 'Mb';
+      if (fileInput.target.files[0].size > max_size) {
+        this.imageError = 'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+
         return false;
       }
-      if (!_.includes(ALLOWED_TYPES, fileInput.target.files[0].type)) {
+
+      if (!_.includes(allowed_types, fileInput.target.files[0].type)) {
         this.imageError = 'Only Images are allowed ( JPG | PNG )';
         return false;
       }
@@ -90,15 +91,17 @@ export class ArticleEditionComponent implements OnInit {
           this.isImageSaved = true;
 
           this.article.image_media_type = fileInput.target.files[0].type;
-          const head = this.article.image_media_type.length + 13;
-          this.article.image_data = e.target.result.substring(
-            head,
-            e.target.result.length
-          );
+          this.article.image_data = reader.result?.toString().split(',')[1];
         };
       };
+
       reader.readAsDataURL(fileInput.target.files[0]);
     }
     return true;
+  }
+
+  removeImage() {
+    this.cardImageBase64 = null;
+    this.isImageSaved = false;
   }
 }
